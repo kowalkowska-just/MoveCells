@@ -1,3 +1,7 @@
+##### _Swift 5_
+##### _Xcode 12.1_     
+##### _iOS 14.1_ 
+
 # MoveCells
 
 ### In this project, I created a Table View where you can change the order of the cells after clicking "Sort" in the NavigationController.
