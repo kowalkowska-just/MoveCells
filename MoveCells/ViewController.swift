@@ -50,6 +50,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    //move cells
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         return true
     }
@@ -57,5 +58,18 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         
         models.swapAt(sourceIndexPath.row, destinationIndexPath.row)
+    }
+    
+    //delete cells
+    //Delate cells
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        table.beginUpdates()
+        models.remove(at: indexPath.row)
+        table.deleteRows(at: [indexPath], with: .fade)
+        table.endUpdates()
     }
 }
